@@ -1,12 +1,39 @@
-# Modulos do Ulog -> User log 
+# Guia de instala√ß√£o do Ulogd 
 
-### h· o Arquivo Fonte È arquivo base do Ulogd 
+## Comandos:
 
-### deixarei um arquivo padr„o do ulog /usr/local/etc/ulogd.conf ou /etc/ulogd.conf
+### Requisitos para compilar o Ulogd
+```
+sudo apt update && sudo apt install -y libnfnetlink-dev libnetfilter-log-dev libnetfilter-queue-dev libnfnetlink-dev libnfnetlink0 libnetfilter-log1 libnetfilter-queue1
+```
+### Compilando o Ulogd
+````
+cd ./ulogd-2.0.5 
+./configure
+make
+sudo make install
+```` 
 
-## libs necessarias 
-## apt-get install -y libnfnetlink-dev libnetfilter-log-dev libnetfilter-queue-dev libnfnetlink-dev libnfnetlink0 libnetfilter-log1 libnetfilter-queue1
-### comandos #./configure depois #make e #sudo make install
+### Veja se foi instalado
+```
+ulogd -d
+ulogd --version
+```` 
 
+### Copie o Arquivo padr√£o para/usr/local/etc/ulogd.conf ou /etc/ulogd.conf
+```
+cp ./../ulogd.conf usr/local/etc/ulogd.conf
+cp ./../ulogd.conf /etc/ulogd.conf
+```
+##### Obs: fica a sua escolha decidir onde ele vai ficar
 
-### cp ulogd.conf /usr/local/etc/ulogd.conf
+## Copie as Libs para o local Certo
+```
+cp ./../ulogd /usr/lib64/
+```
+##### Obs: √© o caminho do diretorios onde √© colocado os plugins no arquivo ulogd.conf
+
+#
+
+### Para mais verifique!
+### https://rlworkman.net/howtos/ulogd.html
