@@ -9,7 +9,8 @@ sudo apt update && sudo apt install -y libnfnetlink-dev libnetfilter-log-dev lib
 ### Compilando o Ulogd
 ````
 cd ./ulogd-2.0.5 
-./configure
+./configure 
+#Suporte ao SQL use ./configure --with-mysql
 make
 sudo make install
 ```` 
